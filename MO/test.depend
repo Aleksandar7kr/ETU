@@ -1,0 +1,59 @@
+# depslib dependency file v1.0
+1315932207 source:/home/aleksandar/cplusplus/test/Interval.cpp
+	"Interval.h"
+
+1315932179 /home/aleksandar/cplusplus/test/Interval.h
+
+1316016842 source:/home/aleksandar/cplusplus/test/main.cpp
+	<iostream>
+	<math.h>
+	"header.h"
+
+1315932353 source:/home/aleksandar/cplusplus/test/test_function.cpp
+	<math.h>
+
+1315932539 /home/aleksandar/cplusplus/test/test_function.cpp
+	<math.h>
+
+1316016331 source:/home/aleksandar/cplusplus/test/test.cpp
+
+1316016624 /home/aleksandar/cplusplus/test/test.cpp
+
+1316017805 /home/aleksandar/cplusplus/test/header.h
+
+1316016904 source:/home/aleksandar/cplusplus/test/m.cpp
+	"header.h"
+
+1316017507 source:/home/aleksandar/cplusplus/test/swen.cpp
+	"header.h"
+
+1316469994 source:/home/aleksandar/cplusplus/MO/main.cpp
+	<iostream>
+	"header.h"
+
+1316470176 /home/aleksandar/cplusplus/MO/header.h
+
+1316469962 source:/home/aleksandar/cplusplus/MO/swen.cpp
+	"header.h"
+
+1316470012 source:/home/aleksandar/cplusplus/MO/functions.cpp
+	"header.h"
+
+1316025110 source:/home/aleksandar/cplusplus/MO/gold2.cpp
+	"header.h"
+
+1316025146 source:/home/aleksandar/cplusplus/MO/interval.cpp
+	"header.h"
+
+1316020786 /home/aleksandar/cplusplus/MO/interval.cpp
+	"header.h"
+
+1316025725 source:/home/aleksandar/cplusplus/MO/Interval.cpp
+	"Interval.h"
+
+1316025775 /home/aleksandar/cplusplus/MO/Interval.h
+	"header.h"
+
+1316469804 /home/aleksandar/cplusplus/MO/swen.cpp
+	"header.h"
+
