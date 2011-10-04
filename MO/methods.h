@@ -37,12 +37,12 @@ static double derevative(double (*f)(double),double x)
 
 
 
-double form1(double (*f)(double),double a,double b, double c)
+static double form1(double (*f)(double),double a,double b, double c)
 {
     return 0.5*(f(a)*(b*b-c*c) + f(b)*(c*c-b*b) + f(c)*(a*a-b*b))/(f(a)*(b-c) + f(b)*(c-b) + f(c)*(a-b));
 }
 
-double form2(double (*f)(double),double a,double b, double c)
+static double form2(double (*f)(double),double a,double b, double c)
 {
     return 0.5*((f(a)-f(b))*(b-c)*(c-a))/(f(a)*(b-c)+f(b)*(c-a)+f(c)*(a-b)) + (a+b)/2;
 }

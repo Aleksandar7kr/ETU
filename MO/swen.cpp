@@ -38,3 +38,8 @@ Interval swenn_1(double (*f)(double), double x1)
     //std::cout << k << std::endl;
     return i;
 }
+
+Interval swenn_2(double (*f)(double),double x1)
+{
+    ;
+}
