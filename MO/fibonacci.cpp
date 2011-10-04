@@ -23,7 +23,7 @@ double fibonacci_1(double (*f)(double), Interval interval)
     double a = interval.a;
     double b = interval.b;
     double L = fabs(b-a);
-    size_t n = GetN(L, 0.000001, fib);
+    size_t n = GetN(L, myEPS, fib);
     size_t k = 0;
     double eps = L/(fib[n-1]+fib[n]);
     double la,mu;
@@ -60,7 +60,7 @@ double fibonacci_2(double (*f)(double), Interval interval)
     double a = interval.a;
     double b = interval.b;
     double L = fabs(b-a);
-    size_t n = GetN(L, 0.000001, fib);
+    size_t n = GetN(L, myEPS, fib);
     size_t k = 0;
     double eps = L/(fib[n-1]+fib[n]);
 
@@ -71,34 +71,35 @@ double fibonacci_2(double (*f)(double), Interval interval)
     double x1 = a + L2; f1 = f(x1);
     double x2 = b - L2; f2 = f(x2);
 
-    while (k != n)
+    while (k < n)
     {
-        if (f1 < f2)
+        if (f(x1) < f(x2))
         {
             if (x1 < x2)
             {
-                b = x2; x2 ; f2 = f(x2);
+                b = x2;
             }
             else
             {
-                a = x2; x2 ; f2 = f(x2);
+                a = x2;
             }
         }
         else
         {
             if (x1 < x2)
             {
-                a = x1; x1 ; f1 = f(x1);
+                a = x1;
             }
             else
             {
-                b = x1; x1 ; f1 = f(x1);
+                b = x1;
             }
+            x1=x2;
         }
-        cout << " x1= " << x1 << " x2= " << x2 << endl;
+        x2 = a+b-x1;
+       // cout << " x1= " << x1 << " x2= " << x2 << endl;
         ++k;
     }
     cout << "itertions = " << k << endl;
     return x1;
-
 }
