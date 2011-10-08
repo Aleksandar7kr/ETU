@@ -15,3 +15,13 @@ double f2_4(double x)
 {
     return x >= 0 ? 4*x*x*x - 3*x*x*x*x : 4*x*x*x + 3*x*x*x*x;
 }
+
+double f1_7(double x)
+{
+return 2*x*x + 16/x;
+}
+
+double ff(double x)
+{
+    return -exp(-x)*log(x);
+}

@@ -41,5 +41,39 @@ Interval swenn_1(double (*f)(double), double x1)
 
 Interval swenn_2(double (*f)(double),double x1)
 {
-    ;
+    double h = 0.001*fabs(x1);
+    double x2 = x1 + h;
+    double df1 = derevative(f,x1);
+    double df2 = derevative(f,x2);
+
+    if  (df2 > df1)
+    {
+        h = -h;
+        x2 = x1 + h;
+    }
+
+    while ( df1*df2 > 0)
+    {
+        h = 2*h;
+        x1 = x2;
+        df1 = df2;
+        x2 = x1+h;
+        df2 = derevative(f,x2);
+    }
+    Interval i;
+    i.a = x1;
+    i.b = x2;
+
+        if (i.a > x2)
+    {
+        i.b = i.a; i.a = x2;
+    }
+    else
+    {
+        i.b = x2;
+    }
+    //std::cout << k << std::endl;
+    return i;
+
 }
+

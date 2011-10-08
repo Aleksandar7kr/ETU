@@ -16,11 +16,15 @@ using namespace std;
 int main()
 {
     // lab #1
-//    cout << "fibonacci_2 minimum = " << fibonacci_2(f1_4, swenn_1(f1_4, 2)) << endl;
+
+//    cout << "fibonacci_2 minimum = " << fibonacci_2(ff, swenn_1(ff, 100000)) << endl;
 
     // lab #2
-    cout << "bolzano minimum = " << bolzano(f2_4,swenn_1(f2_4,0.4)) << endl;
-    cout << "powell  minimum = " <<  powell(f2_4,swenn_1(f2_4,0.4)) << endl;
+//    cout << "bolzano minimum = " << bolzano(ff,swenn_1(ff,1)) << endl;
+//    cout << "powell  minimum = " <<  powell(ff,swenn_1(ff,1)) << endl;
+
+      Interval i = swenn_1(parabola, 1000);
+      cout << i.a << " " << i.b;
 
 }
 

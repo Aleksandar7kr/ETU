@@ -14,6 +14,7 @@ static double myEPS = 0.0000001;
 
 // swen.cpp
 Interval swenn_1(double (*f)(double), double x1);
+Interval swenn_2(double (*f)(double), double x1);
 
 // gold.cpp
 double gold_ratio_2(double (*f)(double), Interval interval);
