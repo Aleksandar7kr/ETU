@@ -1,6 +1,6 @@
 clc; clear;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% idz #1 - interpolation labs
+% idz #1 - interpolation lab
 
 % input parametrs for variant #9
 X  = [0.0000, 0.5000, 1.0000, 1.5000, 2.0000];
@@ -12,7 +12,7 @@ x0 = 0.64;
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% idz #2 - aproximation labs
+% idz #2 - aproximation lab
 
 % input patametrs for variant #9
 koef_3 = [1.2, -2.2, 3.5];
