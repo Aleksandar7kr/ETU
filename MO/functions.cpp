@@ -23,5 +23,11 @@ return 2*x*x + 16/x;
 
 double ff(double x)
 {
-    return -exp(-x)*log(x);
+    return x*x*x*x;
 }
+
+double f3_13(double x1,double x2)
+{
+    return pow(x1-2,4)+pow(x1-2*x2,2);
+}
+

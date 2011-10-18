@@ -29,5 +29,4 @@ double powell(double (*f)(double), Interval interval)
     }
     cout << "itertions = " << k << endl;
     return d;
-
 }

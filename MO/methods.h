@@ -1,6 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <math.h>
+
+#include "nVector.h"
+
 using namespace std;
 
 // global additional types, const and methods
@@ -17,6 +20,7 @@ Interval swenn_1(double (*f)(double), double x1);
 Interval swenn_2(double (*f)(double), double x1);
 
 // gold.cpp
+double gold_ratio_1(double (*f)(double), Interval interval);
 double gold_ratio_2(double (*f)(double), Interval interval);
 
 // fibonacci.cpp
@@ -32,7 +36,7 @@ double powell(double (*f)(double), Interval interval);
 
 static double derevative(double (*f)(double),double x)
 {
-    return (f(x+myEPS)-f(x))/myEPS;
+    return (f(x+myEPS/2)-f(x-myEPS/2))/myEPS;
 }
 
 
