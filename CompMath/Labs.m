@@ -20,7 +20,6 @@ koef_2 = [1.3, 2.8];
 x_min = -0.5; x_max = 1.5;   
 n = 50;    
 s = 2.3;
-
-myApproximation(koef_3,x_min,x_max,n,s);
+myApproximation(koef_2,x_min,x_max,n,s);
 
 
