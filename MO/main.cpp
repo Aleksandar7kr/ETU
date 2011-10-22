@@ -26,19 +26,19 @@ int main()
 //    cout << "bolzano minimum = " << bolzano(ff,swenn_1(ff,1)) << endl;
 //    cout << "powell  minimum = " <<  powell(ff,swenn_1(ff,1)) << endl;
 
-/*
+
     double x1[] = {1,2,3,4,5};
     double x2[] = {1,1,1,1,1};
 
     nVector point1(vector <double>(x1, x1+sizeof(x1)/sizeof(double)));
     nVector point2(vector <double>(x2, x2+sizeof(x2)/sizeof(double)));
 
-    nVector point3(point1*10);
-    point1 +=point2;
-    point2*=10;
-    for (unsigned i = 0; i < point3.GetSize(); i++)
+ //   nVector point3(point1*10);
+ //   point1 +=point2;
+    point2=point1;
+    for (unsigned i = 0; i < point2.GetSize(); i++)
     {
         cout << point2.coord[i] << " ";
     }
-*/
+return 0;
 }

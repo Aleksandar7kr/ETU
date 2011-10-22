@@ -15,7 +15,7 @@ double nVector::GetSize() const
     return coord.size();
 }
 
-nVector nVector::operator +(nVector b) const
+nVector nVector::operator +(const nVector & b) const
 {
     if ( *this == b)
     {
@@ -28,7 +28,7 @@ nVector nVector::operator +(nVector b) const
     }
 }
 
-void nVector::operator +=(nVector b)
+void nVector::operator +=(const nVector& b)
 {
     if ( *this == b)
     {
@@ -39,7 +39,7 @@ void nVector::operator +=(nVector b)
     }
 }
 
-bool nVector::operator ==(nVector b) const
+bool nVector::operator ==(const nVector& b) const
 {
     return ( GetSize() == b.GetSize()) ? true : false;
 }
@@ -60,4 +60,10 @@ void nVector::operator *=(double scalar)
     {
         coord.at(i)*=scalar;
     }
+}
+
+nVector& nVector::operator =(const nVector &b)
+{
+    coord = b.coord;
+    return *this;
 }

@@ -6,6 +6,7 @@
 class nVector
 {
     private:
+    public:
         std::vector <double> coord;
         unsigned size;
     public:
@@ -14,12 +15,12 @@ class nVector
 
         double  GetSize()            const;
 
-        nVector operator  +(nVector) const;
-        void    operator +=(nVector);
-        bool    operator ==(nVector) const;
+        nVector operator  +(const nVector&) const;
+        void    operator +=(const nVector&);
+        bool    operator ==(const nVector&) const;
         nVector operator * (double )  const;  //multiplication by a scalar
-        void    operator *=(double);
-
+        void    operator *=(double );
+        nVector&   operator  =(const nVector&);
 };
 
 #endif // NVECTOR_H
