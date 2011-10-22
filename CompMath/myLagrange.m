@@ -34,6 +34,7 @@ function myLagrange(X,Y,x0)
         plot(T,Qj);
         
         f_x0 = polyval(sum,x0)
-        plot(x0,f_x0,'or');
+        plot(x0,f_x0,'or',X,Y, '*r');
+        
     end
 end

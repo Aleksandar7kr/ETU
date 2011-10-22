@@ -5,13 +5,20 @@
 
 class nVector
 {
-    public:
-        nVector(std::vector <double>);
-        virtual ~nVector();
-    protected:
-    public:
+    private:
         std::vector <double> coord;
-        size_t size;
+        unsigned size;
+    public:
+        nVector(const std::vector <double> &input);
+        virtual ~nVector();
+
+        double  GetSize()            const;
+
+        nVector operator  +(nVector) const;
+        void    operator +=(nVector);
+        bool    operator ==(nVector) const;
+        nVector operator * (double )  const;  //multiplication by a scalar
+        void    operator *=(double);
 
 };
 

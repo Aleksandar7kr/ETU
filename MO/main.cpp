@@ -7,9 +7,11 @@
 
 #include <iostream>
 
-#include "methods.h"
-#include "functions.h"
+//#include "methods.h"
+//#include "functions.h"
 #include <vector>
+
+#include "nVector.h"
 
 
 using namespace std;
@@ -24,15 +26,19 @@ int main()
 //    cout << "bolzano minimum = " << bolzano(ff,swenn_1(ff,1)) << endl;
 //    cout << "powell  minimum = " <<  powell(ff,swenn_1(ff,1)) << endl;
 
-    vector <double>  v;
-    v.push_back(1);
-    v.push_back(2);
-    v.push_back(3);
+/*
+    double x1[] = {1,2,3,4,5};
+    double x2[] = {1,1,1,1,1};
 
-    nVector point(v);
-    for (size_t i = 0; i < point.coord.size(); ++i)
+    nVector point1(vector <double>(x1, x1+sizeof(x1)/sizeof(double)));
+    nVector point2(vector <double>(x2, x2+sizeof(x2)/sizeof(double)));
+
+    nVector point3(point1*10);
+    point1 +=point2;
+    point2*=10;
+    for (unsigned i = 0; i < point3.GetSize(); i++)
     {
-        cout << point.coord[i] << " ";
+        cout << point2.coord[i] << " ";
     }
+*/
 }
-

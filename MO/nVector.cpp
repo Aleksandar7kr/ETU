@@ -1,11 +1,63 @@
 #include "nVector.h"
 
-nVector::nVector(std::vector <double> v):coord(v)
+nVector::nVector(const std::vector <double> &input):coord(input)
 {
-    //size = coord.size();
+
 }
 
 nVector::~nVector()
 {
     //dtor
+}
+
+double nVector::GetSize() const
+{
+    return coord.size();
+}
+
+nVector nVector::operator +(nVector b) const
+{
+    if ( *this == b)
+    {
+        std::vector <double> summ;
+        for (unsigned i=0; i < b.GetSize(); i++)
+        {
+            summ.push_back(coord.at(i) + b.coord.at(i));
+        }
+        return nVector(summ);
+    }
+}
+
+void nVector::operator +=(nVector b)
+{
+    if ( *this == b)
+    {
+        for (unsigned i=0; i < b.GetSize(); i++)
+        {
+            coord.at(i) += b.coord.at(i);
+        }
+    }
+}
+
+bool nVector::operator ==(nVector b) const
+{
+    return ( GetSize() == b.GetSize()) ? true : false;
+}
+
+nVector nVector::operator *(double scalar) const
+{
+    std::vector <double> result;
+    for (unsigned i=0; i < GetSize(); i++)
+    {
+        result.push_back(coord.at(i)*scalar);
+    }
+    return nVector(result);
+}
+
+void nVector::operator *=(double scalar)
+{
+    for (unsigned i=0; i < GetSize(); i++)
+    {
+        coord.at(i)*=scalar;
+    }
 }

@@ -16,6 +16,7 @@ function myNewton(X,Y)
         Z = polyval(P, T);
     
         plot(T, Z, X, Y,'or');
+        %метод наименьших квадратов, сплайн-интер
     end  
 end
     
