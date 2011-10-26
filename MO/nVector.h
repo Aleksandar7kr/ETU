@@ -18,11 +18,15 @@ class nVector
 
         // operators
         friend nVector operator+  (const nVector &a, const nVector &b);
+        friend nVector operator-  (const nVector &a, const nVector &b);
+        friend nVector operator*  (const nVector&,double );
+        friend nVector operator*  (const nVector&,const nVector&);
         nVector&       operator+= (const nVector&);
         bool           operator== (const nVector&) const;
-        friend nVector operator*  (const nVector&,double );
         nVector&       operator*= (double );
         nVector&       operator=  (const nVector&);
+        double         operator[] (const unsigned n) const;
+        nVector&       operator-  ()const;
 };
 
 #endif // NVECTOR_H

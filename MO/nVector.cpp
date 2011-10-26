@@ -18,17 +18,15 @@ double nVector::GetSize() const
 
 nVector operator +(const nVector &a, const nVector &b)
 {
-    /*if ( a == b)
-    {
-        std::vector <double> summ;
-        for (unsigned i=0; i < b.GetSize(); i++)
-        {
-            summ.push_back(a.coord.at(i) + b.coord.at(i));
-        }
-        return nVector(summ);
-    }*/
     nVector summ(a);
     return nVector(summ+=b);
+}
+
+nVector operator-  (const nVector &a, const nVector &b)
+{
+    nVector res(a);
+    res += b*(-1);
+    return res;
 }
 
 nVector& nVector::operator +=(const nVector& b)
@@ -50,11 +48,6 @@ bool nVector::operator ==(const nVector& b) const
 
 nVector operator *(const nVector &a,double scalar)
 {
-//    std::vector <double> result;
-//    for (unsigned i=0; i < a.GetSize(); i++)
-//    {
-//        result.push_back(a.coord.at(i)*scalar);
-//    }
     nVector result(a);
     return nVector(result*=scalar);
 }
@@ -67,6 +60,14 @@ nVector& nVector::operator *=(double scalar)
     }
     return *this;
 }
+nVector operator*  (const nVector&a,const nVector&b)
+{
+    std::vector <double> res;
+    res.push_back(a[0]*b[0]);
+    res.push_back(a[1]*b[1]);
+    nVector result(res);
+    return result;
+}
 
 nVector& nVector::operator =(const nVector &b)
 {
@@ -76,3 +77,20 @@ nVector& nVector::operator =(const nVector &b)
         return *this;
     }
 };
+
+double nVector::operator [](const unsigned n) const
+{
+    return coord.at(n);
+}
+
+nVector& nVector::operator-() const
+{
+    std::vector <double> res;
+    for (unsigned i=0; i < GetSize(); i++)
+    {
+        res.push_back(-coord.at(i));
+    }
+
+    nVector result(res);
+    return result;
+}

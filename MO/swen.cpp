@@ -4,7 +4,7 @@
 
 Interval swenn_1(double (*f)(double), double x1)
 {
-    double h = 0.001*fabs(x1);
+    double h = x1 ? 0.001*fabs(x1) : 0.001;
     double x2 = x1 + h;
     double f1 = f(x1);
     double f2 = f(x2);

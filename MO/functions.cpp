@@ -26,8 +26,14 @@ double ff(double x)
     return x*x*x*x;
 }
 
-double f3_13(double x1,double x2)
+double f3_13(nVector arg)
 {
-    return pow(x1-2,4)+pow(x1-2*x2,2);
+    return pow(arg[0]-2,4)+pow(arg[0]-2*arg[1],2);
+}
+
+double test6(nVector arg)
+{
+      return 2*arg[0]*arg[0]-2*arg[0]*arg[1]+ 2*arg[1]*arg[1] - 6*arg[1] -6;
+    //return arg[0]*arg[0]+arg[1]*arg[1];
 }
 

@@ -1,5 +1,5 @@
 #include <math.h>
-
+#include "nVector.h"
 
 // test functions
 double parabola(double x);
@@ -14,5 +14,7 @@ double f2_4(double x);
 double f1_7(double x);
 
 // lab #3
-double f3_13(double x1,double x2);
+double f3_13(nVector arg);
+
+double test6(nVector arg);
 
