@@ -33,7 +33,8 @@ double f3_13(nVector arg)
 
 double test6(nVector arg)
 {
-      return 2*arg[0]*arg[0]-2*arg[0]*arg[1]+ 2*arg[1]*arg[1] - 6*arg[1] -6;
+    // return 2*arg[0]*arg[0]-2*arg[0]*arg[1]+ 2*arg[1]*arg[1] - 6*arg[1] -6;
     //return arg[0]*arg[0]+arg[1]*arg[1];
+    return (arg[0]-1)*(arg[0]-1) + (arg[1]-3)*(arg[1]-3) + 4 * (arg[2]+5)*(arg[2]+5);
 }
 

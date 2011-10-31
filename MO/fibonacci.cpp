@@ -63,13 +63,10 @@ double fibonacci_2(double (*f)(double), Interval interval)
     size_t n = GetN(L, myEPS, fib);
     size_t k = 0;
     double eps = L/(fib[n-1]+fib[n]);
-
-    double f1, f2;
-
     double L2 = fib[n-1]/fib[n]*L + pow(-1,n)/fib[n]*eps;
 
-    double x1 = a + L2; f1 = f(x1);
-    double x2 = b - L2; f2 = f(x2);
+    double x1 = a + L2;
+    double x2 = b - L2;
 
     while (k < n)
     {

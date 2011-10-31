@@ -1,3 +1,6 @@
+#ifndef METHODS_H
+#define METHODS_H
+
 #include <iostream>
 #include <vector>
 #include <math.h>
@@ -13,9 +16,10 @@ struct Interval
     double b;
 };
 
-static double myEPS = 0.00001;
+static double myEPS = 0.000001;
 
 // swen.cpp
+Interval swenn_1(double (*f)(nVector),const nVector &arg,const nVector &p, double x1);
 Interval swenn_1(double (*f)(double), double x1);
 Interval swenn_2(double (*f)(double), double x1);
 
@@ -34,21 +38,32 @@ double bolzano(double (*f)(double), Interval interval);
 double powell(double (*f)(double), Interval interval);
 
 // davidon.cpp
-double davidon(double (*f)(double), Interval interval, unsigned iter);
+double davidon(double (*f)(double), Interval interval, unsigned iter = -1);
+
+
+static double derevative(double (*f)(double) ,double x);
+static double derevative(double (*f)(nVector),const nVector &arg, const nVector& p, double alpha);
+static double partDer(double (*f)(nVector), nVector arg, unsigned n);
+static nVector grad(double (*f)(nVector), nVector arg);
 
 static double derevative(double (*f)(double),double x)
 {
     return (f(x+myEPS/2)-f(x-myEPS/2))/myEPS;
 }
-static double partDer(double (*f)(nVector), nVector arg, unsigned n);
+
+static double derevative(double (*f)(nVector),const nVector &arg, const nVector& p, double alpha)
+{
+    return (f(arg+p*(alpha+myEPS/2)) - f(arg+p*(alpha-myEPS/2)));
+}
+
 static nVector grad(double (*f)(nVector), nVector arg)
 {
-    std::vector <double> res;
+    std::vector <double> result;
     for (unsigned i = 0; i < arg.GetSize();++i)
     {
-        res.push_back(partDer(f,arg,i));
+        result.push_back(partDer(f,arg,i));
     }
-    return nVector(res);
+    return nVector(result);
 }
 
 static double partDer(double (*f)(nVector), nVector arg, unsigned n)
@@ -56,10 +71,10 @@ static double partDer(double (*f)(nVector), nVector arg, unsigned n)
     vector <double> eps;
     for (unsigned i = 0; i < arg.GetSize(); ++i)
     {
-         i == n ? eps.push_back(myEPS) : eps.push_back(0);
+         eps.push_back(i == n ? myEPS:0);
     }
     nVector EPS(eps);
-    return (f(arg+EPS)-f(arg))/myEPS;
+    return (f(arg+EPS)-f(arg-EPS))/myEPS;
 }
 
 
@@ -72,3 +87,5 @@ static double form2(double (*f)(double),double a,double b, double c)
 {
     return 0.5*((f(a)-f(b))*(b-c)*(c-a))/(f(a)*(b-c)+f(b)*(c-a)+f(c)*(a-b)) + (a+b)/2;
 }
+
+#endif

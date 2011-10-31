@@ -16,20 +16,21 @@
 
 using namespace std;
 
-double x0[] = {0,0};
-double p0[]  = {1,1};
-double ee1[] = {1,0};
-double ee2[] = {0,1};
+double x0[] = {4,-1,2};
+double p0[]  = {0,0,0};
+double ee1[] = {1,0,0};
+double ee2[] = {0,1,0};
+
+double ee3[] = {0,0,1};
 
 //double x0[] = {0,0};
 //double p0[] = {1,0};
-nVector x1(x0,2);
+nVector x1(x0,3);
 nVector x2(x1);
-nVector p(p0,2);
-nVector e1(ee1,2);
-nVector e2(ee2,2);
-
-
+nVector p(p0,3);
+nVector e1(ee1,3);
+nVector e2(ee2,3);
+nVector e3(ee3,3);
 
 double y(double alpha)
 {
@@ -45,25 +46,29 @@ double test(nVector arg)
 void A()
 {
     unsigned k = 0;
+    unsigned j = 0;
+    unsigned size= x1.GetSize();
     double alpha = 1;
     Interval interval;
-    for (;k < 10;)
+    std::vector<nVector> e;
+    for (unsigned i = 0; i < size; i++)
     {
-        interval = swenn_1(y,alpha);
-        alpha = davidon(y,interval,10);
-        x2 = x1 + p*alpha;
-        p = e1*grad(test6,x2);
-        x1 = x2;
-        k++;
-        interval = swenn_1(y,alpha);
-        alpha = davidon(y,interval,10);
-        x2 = x1 + p*alpha;
-        p = e2*grad(test6,x2);
-        x1 = x2;
-        k++;
+        e.push_back(nVector(i,1,size));
     }
-    cout << " minimum = [" << x2[0] << " " << x2[1] << "]" << endl;
-    cout << test6(x2);
+    do
+    {
+        x1 = x2;
+        //p = e[j%size]*-grad(test6,x1);
+        p = e[j%size]*-partDer(test6, x1, j%size);
+        interval = swenn_1(y,alpha);
+        alpha = davidon(y,interval);
+        x2 = x1 + p*alpha;
+        //cout << "p = " << "[ " << p[0] << " " << p[1] << " " << p[2] << "]"<<endl;
+        k++;j++;
+    }
+    while ( ( (x2-x1).GetNorm() > myEPS ) && fabs( test(x2)-test6(x1))> myEPS);
+    cout << " minimum = [" << x2[0] << " " << x2[1] <<  " " << x2[2] << " ]" << endl;
+    cout << test6(x2) << endl;
 }
 
 

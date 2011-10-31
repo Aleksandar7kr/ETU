@@ -1,4 +1,5 @@
 #include "nVector.h"
+typedef unsigned size_t;
 
 nVector::nVector(const std::vector <double> &input):coord(input)
 {;}
@@ -8,12 +9,30 @@ nVector::nVector( double input[], const size_t sizeN)
     for (unsigned i=0; i< sizeN; i++)  coord.push_back(input[i]);
 }
 
+nVector::nVector(unsigned ortN, double ortL, unsigned n)
+{
+    for (unsigned i = 0; i < n; ++i)
+    {
+        coord.push_back( (i==ortN) ? ortL : 0 );
+    }
+}
+
 nVector::~nVector()
 {;}
 
-double nVector::GetSize() const
+unsigned nVector::GetSize() const
 {
     return coord.size();
+}
+
+double nVector::GetNorm() const
+{
+    double norm = 0;
+    for (unsigned i = 0; i < GetSize(); ++i)
+    {
+        norm+=(coord.at(i)*coord.at(i));
+    }
+    return sqrt(norm);
 }
 
 nVector operator +(const nVector &a, const nVector &b)
@@ -60,37 +79,17 @@ nVector& nVector::operator *=(double scalar)
     }
     return *this;
 }
-nVector operator*  (const nVector&a,const nVector&b)
-{
-    std::vector <double> res;
-    res.push_back(a[0]*b[0]);
-    res.push_back(a[1]*b[1]);
-    nVector result(res);
-    return result;
-}
 
 nVector& nVector::operator =(const nVector &b)
 {
     if ( *this == b)
     {
         coord = b.coord;
-        return *this;
     }
+    return *this;
 };
 
 double nVector::operator [](const unsigned n) const
 {
     return coord.at(n);
-}
-
-nVector& nVector::operator-() const
-{
-    std::vector <double> res;
-    for (unsigned i=0; i < GetSize(); i++)
-    {
-        res.push_back(-coord.at(i));
-    }
-
-    nVector result(res);
-    return result;
 }
