@@ -16,7 +16,7 @@ struct Interval
     double b;
 };
 
-static double myEPS = 0.000001;
+static double myEPS = 0.0000001;
 
 // swen.cpp
 Interval swenn_1(double (*f)(nVector),const nVector &arg,const nVector &p, double x1);
@@ -47,10 +47,10 @@ nVector gauss_seidel(double (*f)(nVector),nVector x1);
 // partan.cpp
 nVector partan1(double (*f)(nVector), nVector x1);
 
-static double derevative(double (*f)(double) ,double x);
-static double derevative(double (*f)(nVector),const nVector &arg, const nVector& p, double alpha);
-static double partDer(double (*f)(nVector), nVector arg, unsigned n);
-static nVector grad(double (*f)(nVector), nVector arg);
+inline static double derevative(double (*f)(double) ,double x);
+inline static double derevative(double (*f)(nVector),const nVector &arg, const nVector& p, double alpha);
+inline static double partDer(double (*f)(nVector),const nVector &arg, unsigned n);
+inline static nVector grad(double (*f)(nVector), nVector arg);
 
 inline static double derevative(double (*f)(double),double x)
 {
@@ -72,7 +72,7 @@ inline static nVector grad(double (*f)(nVector), nVector arg)
     return nVector(result);
 }
 
-inline static double partDer(double (*f)(nVector), nVector arg, unsigned n)
+inline static double partDer(double (*f)(nVector),const nVector &arg, unsigned n)
 {
     vector <double> eps;
     for (unsigned i = 0; i < arg.GetSize(); ++i)

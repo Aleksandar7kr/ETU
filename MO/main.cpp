@@ -70,24 +70,22 @@ int main()
 
 /*  //lab #3
     double alpha = 1;
-
     Interval i = swenn_1(y,alpha);
     cout << i.a << " " << i.b << endl;
-
     x2 = x1+p*davidon(y,i,10);
     cout << "davidon minimum = [" << x2[0] << " " << x2[1] << "]" << endl;
-
     x2 = x1+p*fibonacci_1(y,i);
     cout << "fibanacci_1 minimum = [" << x2[0] << " " << x2[1] << "]";
 */
-    double x4_1[]  = {8,9,2};
+
+    // lab #4
+    double x4_1[]  = {8,9};
     double x4_2[]  = {0,0};
     nVector x22_1(x4_1, sizeof(x4_1)/sizeof(x4_1[0]));
     nVector x22_2(x4_2, sizeof(x4_2)/sizeof(x4_2[0]));
 
     //gauss_seidel(f22,x22_1);
-
-    partan1(test6,x22_1);
+    partan1(f22,x22_1);
 
 
 
