@@ -15,8 +15,8 @@
 
 
 using namespace std;
-
-double x0[] = {4,-1,2};
+/*
+double x0[] = {4,-1,1};
 double p0[]  = {0,0,0};
 double ee1[] = {1,0,0};
 double ee2[] = {0,1,0};
@@ -37,40 +37,11 @@ double y(double alpha)
   //  return f3_13(x1+p*alpha) ;
   return test6(x1+p*alpha);
 }
-
+*/
 double test(nVector arg)
 {
         return 2*arg[0]*arg[0]-2*arg[0]*arg[1]+ 2*arg[1]*arg[1] - 6*arg[1] -6;
 }
-
-void A()
-{
-    unsigned k = 0;
-    unsigned j = 0;
-    unsigned size= x1.GetSize();
-    double alpha = 1;
-    Interval interval;
-    std::vector<nVector> e;
-    for (unsigned i = 0; i < size; i++)
-    {
-        e.push_back(nVector(i,1,size));
-    }
-    do
-    {
-        x1 = x2;
-        //p = e[j%size]*-grad(test6,x1);
-        p = e[j%size]*-partDer(test6, x1, j%size);
-        interval = swenn_1(y,alpha);
-        alpha = davidon(y,interval);
-        x2 = x1 + p*alpha;
-        //cout << "p = " << "[ " << p[0] << " " << p[1] << " " << p[2] << "]"<<endl;
-        k++;j++;
-    }
-    while ( ( (x2-x1).GetNorm() > myEPS ) && fabs( test(x2)-test6(x1))> myEPS);
-    cout << " minimum = [" << x2[0] << " " << x2[1] <<  " " << x2[2] << " ]" << endl;
-    cout << test6(x2) << endl;
-}
-
 
 int main()
 {
@@ -109,8 +80,15 @@ int main()
     x2 = x1+p*fibonacci_1(y,i);
     cout << "fibanacci_1 minimum = [" << x2[0] << " " << x2[1] << "]";
 */
+    double x4_1[]  = {8,9,2};
+    double x4_2[]  = {0,0};
+    nVector x22_1(x4_1, sizeof(x4_1)/sizeof(x4_1[0]));
+    nVector x22_2(x4_2, sizeof(x4_2)/sizeof(x4_2[0]));
 
-A();
+    //gauss_seidel(f22,x22_1);
+
+    partan1(test6,x22_1);
+
 
 
 }

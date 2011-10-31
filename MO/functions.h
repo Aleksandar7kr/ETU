@@ -18,4 +18,5 @@ double f3_13(nVector arg);
 
 // lab #4
 double test6(nVector arg);
+double f22(nVector arg);
 
