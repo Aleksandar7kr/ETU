@@ -55,7 +55,6 @@ int main()
           myEPS/=10;
       }
 
-
       cout << "lab #2" << endl;
       double x1[5] = {0.4,-1.1,100,0.1,-1};
       myEPS =0.001;
@@ -79,7 +78,7 @@ int main()
 */
 
     // lab #4
-    double x4_1[]  = {8,9};
+    double x4_1[]  = {100000,100000};
     double x4_2[]  = {0,0};
     nVector x22_1(x4_1, sizeof(x4_1)/sizeof(x4_1[0]));
     nVector x22_2(x4_2, sizeof(x4_2)/sizeof(x4_2[0]));

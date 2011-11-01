@@ -15,7 +15,7 @@ class nVector
         nVector(unsigned ortN, double ortL, unsigned n = 1);
         virtual ~nVector();
 
-        unsigned GetSize()            const;
+        unsigned GetSize()           const;
         double  GetNorm()            const;
 
         // operators

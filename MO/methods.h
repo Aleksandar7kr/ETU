@@ -74,12 +74,7 @@ inline static nVector grad(double (*f)(nVector), nVector arg)
 
 inline static double partDer(double (*f)(nVector),const nVector &arg, unsigned n)
 {
-    vector <double> eps;
-    for (unsigned i = 0; i < arg.GetSize(); ++i)
-    {
-         eps.push_back(i == n ? myEPS:0);
-    }
-    nVector EPS(eps);
+    nVector EPS(n, myEPS, arg.GetSize());
     return (f(arg+EPS)-f(arg-EPS))/myEPS;
 }
 
