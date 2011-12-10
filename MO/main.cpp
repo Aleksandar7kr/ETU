@@ -16,10 +16,10 @@ using namespace std;
 
 int main()
 {
-    double aa[] = {1,2,3,4,5,6,7,8};
+    double aa[] = {1,2,3,4,5,6,7,8,10};
 //    double bb[] = {1,1,1,1,1,1,1,1,1};
-    Matrix a(aa, 2, 4);
-    cout << -a;
+    Matrix a(aa, 3, 3);
+    cout << a.det();
 
     return 0;
 }

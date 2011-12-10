@@ -1,16 +1,28 @@
 #include "Matrix.h"
 
-Matrix::Matrix(double input[], const unsigned n, const unsigned m): x_size(n),y_size(m)
+Matrix::Matrix(double * input, const unsigned n, const unsigned m): x_size(n),y_size(m)
 {
     data = new double[y_size*x_size];
-
     for (unsigned i = 0; i < y_size*x_size; ++i) data[i] = input[i];
 }
 
-Matrix::Matrix(double vector[], const unsigned size): x_size(1), y_size(size)
+Matrix::Matrix(double * vector, const unsigned size): x_size(1), y_size(size)
 {
     data = new double[y_size];
     for (unsigned i = 0; i < y_size; ++i) data[i] = vector[i];
+}
+
+Matrix::Matrix(const unsigned x, const unsigned y): x_size(x), y_size(y)
+{
+    data = new double[x_size*y_size];
+    for (unsigned i = 0; i < y_size*x_size; ++i) data[i] = 0.0;
+}
+
+Matrix::Matrix(double ortLength, unsigned coord, unsigned vectSize): x_size(1), y_size(vectSize)
+{
+    data = new double[y_size];
+    for (unsigned i = 0; i < y_size*x_size; ++i)
+        data[i] = (i == coord) ? ortLength : 0;
 }
 
 Matrix::Matrix(const Matrix & cm)
@@ -21,11 +33,19 @@ Matrix::Matrix(const Matrix & cm)
     *this = cm;
 }
 
-Matrix::~Matrix() {delete data;
+Matrix::~Matrix()
+{
+    delete data;
 }
 
-unsigned Matrix::GetSizeX() const {return x_size;}
-unsigned Matrix::GetSizeY() const {return y_size;}
+unsigned Matrix::GetSizeX() const
+{
+    return x_size;
+}
+unsigned Matrix::GetSizeY() const
+{
+    return y_size;
+}
 
 Matrix Matrix::t() const
 {
@@ -42,10 +62,42 @@ Matrix Matrix::t() const
 
 double Matrix::at(unsigned i, unsigned j) const
 {
-    if (i <= x_size && j <= y_size)
+    // if (i <= x_size && j <= y_size)
+       return data[i*x_size + j];
+    // exception
+}
+
+double Matrix::det() const
+{
+    if (x_size != y_size) return 0;
+    unsigned n = x_size;
+    double det = 1;
+    double EPS = 0.000000001;
+    Matrix m(*this);
+
+    for (unsigned i=0; i<n; ++i)
     {
-        return data[i*x_size + j];
+        unsigned k = i;
+        for (unsigned j=i+1; j<n; ++j)
+            if (fabs(m.at(j,i)) > fabs(m.at(k,i))) k = j;
+
+        if (fabs (m.at(k,i)) < EPS) return 0;
+
+        for (unsigned it = 0; it < x_size; ++it)
+            std::swap(m.data[i*x_size+it], m.data[k*x_size+it]);
+
+        if (i != k) det = -det;
+        det *= m.at(i,i);
+
+        for (unsigned j = i+1; j<n; ++j)
+            m.data[i*x_size+j] /= m.at(i,i);
+
+        for (unsigned j=0; j<n; ++j)
+            if (j != i && fabs(m.at(j,i)) > EPS)
+                for (unsigned k=i+1; k<n; ++k)
+                    m.data[j*x_size+k] -= m.at(i,k) * m.at(j,i);
     }
+    return det;
 }
 
 Matrix& Matrix::operator +=(const Matrix &a)
@@ -121,7 +173,14 @@ Matrix operator - (const Matrix &a, const Matrix &b)
 
 Matrix operator * (const Matrix &a, const double scalar)
 {
-    Matrix c = a;
+    Matrix c(a);
+    c *= scalar;
+    return c;
+}
+
+Matrix operator * (const double scalar, const Matrix& a)
+{
+    Matrix c(a);
     c *= scalar;
     return c;
 }

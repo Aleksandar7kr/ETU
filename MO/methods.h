@@ -6,6 +6,7 @@
 #include <math.h>
 
 #include "nVector.h"
+#include "Matrix.h"
 
 using namespace std;
 
@@ -52,12 +53,22 @@ inline static double derevative(double (*f)(nVector),const nVector &arg, const n
 inline static double partDer(double (*f)(nVector),const nVector &arg, unsigned n);
 inline static nVector grad(double (*f)(nVector), nVector arg);
 
+inline static double derevative(double (*f)(const Matrix&), const Matrix &arg, const Matrix & p, double alpha);
+inline static double partDer(double (*f)(const Matrix &), const Matrix& arg, unsigned n);
+inline static Matrix grad(double (*f)(const Matrix&),const Matrix& arg);
+
+
 inline static double derevative(double (*f)(double),double x)
 {
     return (f(x+myEPS/2)-f(x-myEPS/2))/myEPS;
 }
 
 inline static double derevative(double (*f)(nVector),const nVector &arg, const nVector& p, double alpha)
+{
+    return (f(arg+p*(alpha+myEPS/2)) - f(arg+p*(alpha-myEPS/2)))/myEPS;
+}
+
+inline static double derevative(double (*f)(const Matrix&), const Matrix &arg, const Matrix & p, double alpha)
 {
     return (f(arg+p*(alpha+myEPS/2)) - f(arg+p*(alpha-myEPS/2)))/myEPS;
 }
@@ -72,12 +83,29 @@ inline static nVector grad(double (*f)(nVector), nVector arg)
     return nVector(result);
 }
 
+inline static Matrix grad(double (*f)(const Matrix&),const Matrix& arg)
+{
+    double * result = new double [arg.GetSizeY()];
+
+    for (unsigned i = 0; i < arg.GetSizeX(); ++i)
+    {
+        result[i] = partDer(f,arg,i);
+    }
+    return Matrix(result, arg.GetSizeX());
+
+}
+
 inline static double partDer(double (*f)(nVector),const nVector &arg, unsigned n)
 {
     nVector EPS(n, myEPS, arg.GetSize());
     return (f(arg+EPS)-f(arg-EPS))/myEPS;
 }
 
+inline static double partDer(double (*f)(const Matrix &), const Matrix& arg, unsigned n)
+{
+    Matrix ortEPS(myEPS, n, arg.GetSizeY());
+    return (f(arg+ortEPS) - f(arg-ortEPS))/myEPS;
+}
 
 inline static double form1(double (*f)(double),double a,double b, double c)
 {

@@ -6,17 +6,14 @@ double powell(double (*f)(double), Interval interval)
     double c = interval.b;
     double b = (a+c)/2;
     double d = form1(f,a,b,c);
-    double eps1 = myEPS;
-    double eps2 = myEPS;
-    size_t k = 1;
+    unsigned k = 1;
 
-    while( (eps1 <= fabs(d-b)/fabs(b)) && (eps2 <= fabs(f(d)-f(b))/fabs(f(b))) )
+    while( (myEPS <= fabs(d-b)/fabs(b)) && (myEPS <= fabs(f(d)-f(b))/fabs(f(b))) )
     {
         if ( f(b)<f(d) )
         {
             if (b<d) c=d;
-            else     a=d;
-            // b = b;
+            else     a=d; // b = b;
         }
         else
         {
