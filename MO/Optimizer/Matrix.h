@@ -26,8 +26,10 @@ public:
     unsigned GetSizeY() const;
     Matrix t() const;
     double at(unsigned, unsigned) const;
+    void set(unsigned, unsigned, double);
     double det() const;
     double norm() const;
+    Matrix inv() const;
 
     Matrix& operator += (const Matrix&);
     Matrix& operator -= (const Matrix&);

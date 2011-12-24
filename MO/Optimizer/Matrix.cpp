@@ -15,7 +15,14 @@ Matrix::Matrix(double * vector, const unsigned size): x_size(1), y_size(size)
 Matrix::Matrix(const unsigned x, const unsigned y): x_size(x), y_size(y)
 {
     data = new double[x_size*y_size];
-    for (unsigned i = 0; i < y_size*x_size; ++i) data[i] = 0.0;
+
+    for (unsigned i = 0; i < y_size; ++i)
+    {
+        for (unsigned j = 0; j < x_size; ++j)
+        {
+            data[i*x_size+j] = (i==j) ? 1:0;
+        }
+    }
 }
 
 Matrix::Matrix(double ortLength, unsigned coord, unsigned vectSize): x_size(1), y_size(vectSize)
@@ -32,6 +39,9 @@ Matrix::Matrix(const Matrix & cm)
     this->data = new double [cm.x_size*cm.y_size];
     *this = cm;
 }
+
+Matrix::Matrix()
+{;}
 
 Matrix::~Matrix()
 {
@@ -65,6 +75,11 @@ double Matrix::at(unsigned i, unsigned j) const
     // if (i <= x_size && j <= y_size)
        return data[i*x_size + j];
     // exception
+}
+
+void Matrix::set(unsigned i, unsigned j, double val)
+{
+    data[i*x_size + j] = val;
 }
 
 double Matrix::norm() const
@@ -108,6 +123,74 @@ double Matrix::det() const
                     m.data[j*x_size+k] -= m.at(i,k) * m.at(j,i);
     }
     return det;
+}
+
+Matrix Matrix::inv() const
+{
+    unsigned size = this->GetSizeY();
+    Matrix a(*this);
+    Matrix res(size,size);
+
+    for (unsigned mid = 0; mid < size; mid++)
+    {
+        if (a.at(mid,mid) == 0.0 && mid != size-1)
+        {
+            bool isDone = 0;
+            for (unsigned y = mid+1; y<size; y++)
+            {
+                for (unsigned x = mid; x<size; x++)
+                {
+                    if (a.at(y,x) != 0.0)
+                    {
+                        for (unsigned i=0; i<size; i++)
+                        {
+                            double temp = a.at(mid,i);
+                            a.set(mid,i, a.at(y,i));
+                            a.set(y,i,temp);
+
+                            temp = res.at(mid,i);
+                            res.set(mid,i, res.at(y,i));
+                            res.set(y,i,temp);
+
+                            temp = a.at(i,mid);
+                            a.set(i,mid, a.at(i,x));
+                            a.set(i,x,temp);
+
+                            temp = res.at(i,mid);
+                            res.set(i,mid, res.at(i,x));
+                            res.set(i,x,temp);
+                        }
+                        isDone = 1;
+                        break;
+                    }
+                }
+                if (isDone) break;
+                // "!!!!!" << endl;
+            }
+        }
+        double ToOne = a.at(mid,mid);
+
+        for (unsigned x=0; x<size; x++)
+        {
+            a.set(mid,x, a.at(mid,x)/ ToOne);
+            res.set(mid,x, res.at(mid,x)/ ToOne);
+        }
+        for (unsigned y=0; y<size; y++)
+        {
+            if (y!=mid)
+            {
+                double ToZero = a.at(y,mid);
+
+                for (unsigned x=0; x<size; x++)
+                {
+                    a.set(y,x, a.at(y,x)- a.at(mid,x)*ToZero);
+                    res.set(y,x, res.at(y,x)- res.at(mid,x)*ToZero);
+                }
+            }
+        }
+    }
+    return res;
+
 }
 
 Matrix& Matrix::operator +=(const Matrix &a)

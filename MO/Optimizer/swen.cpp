@@ -82,6 +82,47 @@ Interval swenn_1(double (*f)(const Matrix&),const Matrix &arg0,const Matrix &p, 
     return i;
 }
 
+Interval swenn_1(Parser parser,const Matrix &arg0,const Matrix &p, double alpha)
+{
+    qDebug("swenn");
+    double x1 = alpha;
+    double h = (x1 > myEPS ? 0.001*fabs(x1) : 0.001);
+    double x2 = x1 + h;
+    double f1 = parser.f(arg0+p*x1);
+    double f2 = parser.f(arg0+p*x2);
+    Interval i;
+    unsigned k = 0;
+
+    if (f2 > f1)
+    {
+        h = -h; x2 = x1 + h;
+        f2 = parser.f(arg0+p*x2);
+    }
+    while(f2 < f1)
+    {
+        h = 2*h;
+        i.a = x1;
+        x1 = x2; x2 = x1 + h;
+        f1 = f2; f2 = parser.f(arg0+p*x2);
+        k++;
+    }
+
+    if (i.a > x2)
+    {
+        i.b = i.a; i.a = x2;
+    }
+    else
+    {
+        i.b = x2;
+    }
+
+  //  if (fabs(i.a) < myEPS) i.a = 0;
+  //  if (fabs(i.b) < myEPS) i.b = 0;
+    //std::cout << k << std::endl;
+    //std:: cout << "[ " << i.a << ", " << i.b << " ]" << std::endl;
+    return i;
+}
+
 Interval swenn_1(double (*f)(double), double x1)
 {
     double h = (x1 ? 0.001*fabs(x1) : 0.001);
