@@ -1,0 +1,67 @@
+# depslib dependency file v1.0
+1323787901 source:/home/aleksandar/ETU/MO/functions.cpp
+	"functions.h"
+
+1317078887 /home/aleksandar/ETU/MO/header.h
+
+1324252511 source:/home/aleksandar/ETU/MO/main.cpp
+	<iostream>
+	"methods.h"
+	"functions.h"
+	"nVector.h"
+	"Matrix.h"
+
+1323672747 source:/home/aleksandar/ETU/MO/swen.cpp
+	"methods.h"
+	<iostream>
+	<math.h>
+
+1319739858 source:/home/aleksandar/ETU/MO/fibonacci.cpp
+	"methods.h"
+
+1323787974 /home/aleksandar/ETU/MO/methods.h
+	<iostream>
+	<vector>
+	<math.h>
+	"nVector.h"
+	"Matrix.h"
+
+1319736333 source:/home/aleksandar/ETU/MO/gold.cpp
+	"methods.h"
+
+1317388183 /home/aleksandar/ETU/MO/functions.cpp
+
+1323683492 /home/aleksandar/ETU/MO/functions.h
+	<math.h>
+	"nVector.h"
+	"Matrix.h"
+
+1319894790 source:/home/aleksandar/ETU/MO/bolzano.cpp
+	"methods.h"
+
+1324237140 source:/home/aleksandar/ETU/MO/powell.cpp
+	"methods.h"
+
+1320068548 source:/home/aleksandar/ETU/MO/nVector.cpp
+	"nVector.h"
+
+1320110788 /home/aleksandar/ETU/MO/nVector.h
+	<math.h>
+	<vector>
+
+1323668232 source:/home/aleksandar/ETU/MO/daivdon.cpp
+	"methods.h"
+
+1320128577 source:/home/aleksandar/ETU/MO/partan.cpp
+	"methods.h"
+
+1320111208 source:/home/aleksandar/ETU/MO/gauss_seidel.cpp
+	"methods.h"
+
+1323682583 source:/home/aleksandar/ETU/MO/Matrix.cpp
+	"Matrix.h"
+
+1323682439 /home/aleksandar/ETU/MO/Matrix.h
+	<iostream>
+	<math.h>
+

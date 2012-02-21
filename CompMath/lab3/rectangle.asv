@@ -1,0 +1,26 @@
+clc; clear;
+
+a = 0; b = 4;
+n = [20, 40, 80, 160]; 
+
+IY_real = quad('f',a,b);     
+
+
+for k=1:max(size(n))
+    
+    h2 = (b-a)/n(k);    
+    h = 2*h2;           
+    
+    X2 = a:h2:b;        
+    X  = a:h:b;         
+    
+    IY_h  = h  * sum( f( (X +X +h) /2) );   
+    IY_h2 = h2 * sum( f( (X2+X2+h2)/2) );   
+    
+    delta_real(k)  = abs( IY_real - IY_h2 );  
+    delta_runge(k) = abs( IY_h - IY_h2 )/1;    
+    
+    
+end
+
+plot(n, delta_real, 'g', n, delta_runge,'r'); grid;
