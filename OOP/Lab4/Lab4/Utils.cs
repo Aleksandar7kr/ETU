@@ -32,20 +32,26 @@
         return true;
     }
 
-    public static bool RecursiveFactorial(uint n, uint result = 1)
+
+    public static uint RecursiveFactorial(uint n, uint result = 1)
     {
-        if (n != 0)
+        try
         {
-            try
+            if (n != 0)
             {
-                ;
-            }
-            catch (System.Exception e)
-            {
-                System.Console.WriteLine(e);
-                return false;
+                checked
+                {
+                    result *= n;
+                    return RecursiveFactorial(n - 1, result);
+                }
+
             }
         }
-        return true;
+        catch (System.Exception e)
+        {
+            System.Console.WriteLine(e);
+            return 0;
+        }
+        return result;
     }
 }

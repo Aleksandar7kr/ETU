@@ -49,9 +49,28 @@ class Test
         }
     }
 
+    public static void TestRecursiveFactorial()
+    {
+        try
+        {
+            Console.WriteLine("Please enter n");
+            uint n = uint.Parse(Console.ReadLine());
+            uint result = Utils.RecursiveFactorial(n);
+            Console.WriteLine("Factorial({0}) = {1}", n, result);
+        }
+        catch (Exception e)
+        {
+            System.Console.WriteLine(e);
+        }
+    }
+
     public static void Main()
     {
-        TestFactorial();
+      //  TestMax();
+      //  TestSwap();
+      //  TestFactorial();
+        TestRecursiveFactorial();
+
         Console.ReadKey();
     }
 }
