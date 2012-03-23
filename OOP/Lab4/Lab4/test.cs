@@ -32,16 +32,10 @@ class Test
         {
             Console.WriteLine("Please enter n");
             uint n = uint.Parse(Console.ReadLine());
-
             uint result;
-            if (Utils.Factorial(n, out result))
-            {
-                Console.WriteLine("Factorial({0}) = {1}", n, result);
-            }
-            else
-            {
-                Console.WriteLine("Error!");
-            }
+            Utils.Factorial(n, out result);
+            Console.WriteLine("Factorial({0}) = {1}", n, result);
+
         }
         catch (Exception e)
         {
@@ -66,9 +60,9 @@ class Test
 
     public static void Main()
     {
-      //  TestMax();
-      //  TestSwap();
-      //  TestFactorial();
+        //  TestMax();
+        //  TestSwap();
+        //  TestFactorial();
         TestRecursiveFactorial();
 
         Console.ReadKey();
