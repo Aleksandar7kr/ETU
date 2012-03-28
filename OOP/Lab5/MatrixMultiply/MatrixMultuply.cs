@@ -28,8 +28,7 @@ namespace MatrixMultiply
                     }
                 }
                 return c;
-            }
-            
+            }   
         }
 
         public static void PrintMatrix(int[,] m)
@@ -88,6 +87,5 @@ namespace MatrixMultiply
 
             Console.ReadKey();
         }
-
     }
 }
