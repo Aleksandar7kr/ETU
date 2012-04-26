@@ -5,15 +5,16 @@ namespace lab5
 {
     class FileDetails
     {
-        public static void Summ(Char[] contents)
+
+        // info strings
+        String strVowels = "AEIOUYaeiouy";
+        String strConsonants = "QWRTPSDFGHJKLZXCVBNMqwrtpsdfghjklzxcvbnm";
+
+        public void Summ(Char[] contents)
         {
             // counters
             int counterVowels = 0;
             int counterConsonants = 0;
-            
-            // info strings
-            String strVowels = "AEIOUYaeiouy";
-            String strConsonants = "QWRTPSDFGHJKLZXCVBNMqwrtpsdfghjklzxcvbnm";
 
             foreach (char c in contents)
             {

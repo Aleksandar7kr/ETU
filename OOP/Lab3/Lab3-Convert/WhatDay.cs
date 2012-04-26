@@ -78,7 +78,7 @@ class WhatDay
             }
             */
             
-            Console.WriteLine("{0},{1}", dayNum, monthName);
+            Console.WriteLine("{0} {1}", dayNum, monthName);
         }
         catch(Exception e)
         {

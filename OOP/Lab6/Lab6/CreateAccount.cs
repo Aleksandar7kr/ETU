@@ -16,7 +16,7 @@ class CreateAccount
         Write(freds);
         TestDeposit(freds);
         Write(freds);
-        TestWithdraw(berts);
+        TestWithdraw(freds);
         Write(freds);
         
         Console.ReadKey();

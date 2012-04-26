@@ -83,8 +83,8 @@ class Test
         //  TestFactorial();
         // TestRecursiveFactorial();
 
-        //TestReverse();
-        TestIsFormattable();
+        TestReverse();
+       // TestIsFormattable();
 
         Console.ReadKey();
     }

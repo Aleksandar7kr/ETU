@@ -15,5 +15,6 @@ class EnumTest
 
         Console.WriteLine("goldAccount status: {0}", goldAccount);
         Console.WriteLine("platinumAccount status: {0}", platinumAccount);
+        Console.ReadKey();
     }
 }

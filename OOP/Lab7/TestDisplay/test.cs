@@ -58,13 +58,13 @@ class Test
         }
     }
 
-    public static void TestReverse()
-    {
-        Console.WriteLine("Please enter a string: ");
-        string message = Console.ReadLine();
-        Utils.StringReverse(ref     message);
-        Console.WriteLine(message);
-    }
+        public static void TestReverse()
+        {
+            Console.WriteLine("Please enter a string: ");
+            string message = Console.ReadLine();
+            Utils.StringReverse(ref     message);
+            Console.WriteLine(message);
+        }
 
     public static void TestIsFormattable()
     {
@@ -95,7 +95,7 @@ class Test
         //  TestRecursiveFactorial();
 
         //TestReverse();
-        //TestIsFormattable();
+        
         TestDisplay();
         Console.ReadKey();
     }

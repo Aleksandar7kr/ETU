@@ -1,11 +1,10 @@
 ﻿using System;
 
-
 namespace MatrixMultiply
 {
     class MatrixMultuply
     {
-        public static int[,] Multily(int[,] a, int[,] b)
+        public int[,] Multily(int[,] a, int[,] b)
         {
             if (a.GetLength(1) != b.GetLength(0))
             {
@@ -31,7 +30,7 @@ namespace MatrixMultiply
             }   
         }
 
-        public static void PrintMatrix(int[,] m)
+        public void PrintMatrix(int[,] m)
         {
             for (int i = 0; i < m.GetLength(0); i++)
             {
@@ -43,7 +42,7 @@ namespace MatrixMultiply
             }
         }
 
-        public static void InitMatrix(int[,] m)
+        public void InitMatrix(int[,] m)
         {
             for (int i = 0; i < m.GetLength(0); i++)
             {
