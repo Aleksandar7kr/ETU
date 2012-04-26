@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="ColorTokeniser">
+</Property><Property Name="Файл решения" Value="D:\Dropbox\VI_sem\OOP\ColorTokeniser\ColorTokeniser\ColorTokeniser.sln">
+</Property><Property Name="Date" Value="20 апреля 2012 г.">
+</Property><Property Name="Time" Value="9:05:36">
+</Property></Properties><Event ErrorLevel="0" Project="ColorTokeniser" Source="ColorTokeniser.csproj" Description="Успешно создана резервная копия файла проекта: D:\Dropbox\VI_sem\OOP\ColorTokeniser\ColorTokeniser\Backup\ColorTokeniser.csproj">
+</Event><Event ErrorLevel="0" Project="ColorTokeniser" Source="AssemblyInfo.cs" Description="Успешно создана резервная копия файла D:\Dropbox\VI_sem\OOP\ColorTokeniser\ColorTokeniser\Backup\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="ColorTokeniser" Source="directive_token.cs" Description="Успешно создана резервная копия файла D:\Dropbox\VI_sem\OOP\ColorTokeniser\ColorTokeniser\Backup\directive_token.cs">
+</Event><Event ErrorLevel="0" Project="ColorTokeniser" Source="html_token_visitor.cs" Description="Успешно создана резервная копия файла D:\Dropbox\VI_sem\OOP\ColorTokeniser\ColorTokeniser\Backup\html_token_visitor.cs">
+</Event><Event ErrorLevel="0" Project="ColorTokeniser" Source="identifier_token.cs" Description="Успешно создана резервная копия файла D:\Dropbox\VI_sem\OOP\ColorTokeniser\ColorTokeniser\Backup\identifier_token.cs">
+</Event><Event ErrorLevel="0" Project="ColorTokeniser" Source="Itoken.cs" Description="Успешно создана резервная копия файла D:\Dropbox\VI_sem\OOP\ColorTokeniser\ColorTokeniser\Backup\Itoken.cs">
+</Event><Event ErrorLevel="0" Project="ColorTokeniser" Source="Itoken_visitor.cs" Description="Успешно создана резервная копия файла D:\Dropbox\VI_sem\OOP\ColorTokeniser\ColorTokeniser\Backup\Itoken_visitor.cs">
+</Event><Event ErrorLevel="0" Project="ColorTokeniser" Source="keyword_token.cs" Description="Успешно создана резервная копия файла D:\Dropbox\VI_sem\OOP\ColorTokeniser\ColorTokeniser\Backup\keyword_token.cs">
+</Event><Event ErrorLevel="0" Project="ColorTokeniser" Source="line_end_token.cs" Description="Успешно создана резервная копия файла D:\Dropbox\VI_sem\OOP\ColorTokeniser\ColorTokeniser\Backup\line_end_token.cs">
+</Event><Event ErrorLevel="0" Project="ColorTokeniser" Source="line_start_token.cs" Description="Успешно создана резервная копия файла D:\Dropbox\VI_sem\OOP\ColorTokeniser\ColorTokeniser\Backup\line_start_token.cs">
+</Event><Event ErrorLevel="0" Project="ColorTokeniser" Source="main.cs" Description="Успешно создана резервная копия файла D:\Dropbox\VI_sem\OOP\ColorTokeniser\ColorTokeniser\Backup\main.cs">
+</Event><Event ErrorLevel="0" Project="ColorTokeniser" Source="multi_line_comment_token.cs" Description="Успешно создана резервная копия файла D:\Dropbox\VI_sem\OOP\ColorTokeniser\ColorTokeniser\Backup\multi_line_comment_token.cs">
+</Event><Event ErrorLevel="0" Project="ColorTokeniser" Source="null_token_visitor.cs" Description="Успешно создана резервная копия файла D:\Dropbox\VI_sem\OOP\ColorTokeniser\ColorTokeniser\Backup\null_token_visitor.cs">
+</Event><Event ErrorLevel="0" Project="ColorTokeniser" Source="one_line_comment_token.cs" Description="Успешно создана резервная копия файла D:\Dropbox\VI_sem\OOP\ColorTokeniser\ColorTokeniser\Backup\one_line_comment_token.cs">
+</Event><Event ErrorLevel="0" Project="ColorTokeniser" Source="other_token.cs" Description="Успешно создана резервная копия файла D:\Dropbox\VI_sem\OOP\ColorTokeniser\ColorTokeniser\Backup\other_token.cs">
+</Event><Event ErrorLevel="0" Project="ColorTokeniser" Source="position.cs" Description="Успешно создана резервная копия файла D:\Dropbox\VI_sem\OOP\ColorTokeniser\ColorTokeniser\Backup\position.cs">
+</Event><Event ErrorLevel="0" Project="ColorTokeniser" Source="source_file.cs" Description="Успешно создана резервная копия файла D:\Dropbox\VI_sem\OOP\ColorTokeniser\ColorTokeniser\Backup\source_file.cs">
+</Event><Event ErrorLevel="0" Project="ColorTokeniser" Source="token.cs" Description="Успешно создана резервная копия файла D:\Dropbox\VI_sem\OOP\ColorTokeniser\ColorTokeniser\Backup\token.cs">
+</Event><Event ErrorLevel="0" Project="ColorTokeniser" Source="utility.cs" Description="Успешно создана резервная копия файла D:\Dropbox\VI_sem\OOP\ColorTokeniser\ColorTokeniser\Backup\utility.cs">
+</Event><Event ErrorLevel="0" Project="ColorTokeniser" Source="whitespace_token.cs" Description="Успешно создана резервная копия файла D:\Dropbox\VI_sem\OOP\ColorTokeniser\ColorTokeniser\Backup\whitespace_token.cs">
+</Event><Event ErrorLevel="2" Project="ColorTokeniser" Source="ReadMe.txt" Description="Не удалось создать резервную копию файла D:\Dropbox\VI_sem\OOP\ColorTokeniser\ColorTokeniser\Backup\ReadMe.txt">
+</Event><Event ErrorLevel="0" Project="ColorTokeniser" Source="ColorTokeniser.csproj" Description="Проект успешно преобразован">
+</Event><Event ErrorLevel="3" Project="ColorTokeniser" Source="ColorTokeniser.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="ColorTokeniser" Source="ColorTokeniser.csproj" Description="Сканирование завершено: обновление для файлов проекта не требуется.">
+</Event></UpgradeLog>
