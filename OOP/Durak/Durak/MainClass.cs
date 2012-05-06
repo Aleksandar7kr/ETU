@@ -5,9 +5,11 @@ using System.Text;
 
 using Durak.objects;
 
-
 namespace Durak
 {
+    /// <summary>
+    
+    /// </summary>
     class MainClass
     {
         public static void Main(string[] args)
@@ -17,8 +19,9 @@ namespace Durak
             for (i = 0; !deck.isEmpty(); i++)
             {
                 Card test = deck.GiveNextCard();
-                Console.WriteLine("{0,2} of {1}", test.Number, test.Suit);
+                Console.WriteLine(test.ToString());
             }
+
             Console.WriteLine(i);
             Console.ReadKey();
         }

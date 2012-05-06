@@ -1,4 +1,12 @@
-﻿using System;
+﻿/// Part 3 of coursework (Kruskal's algorithm)
+/// Krasilnikov A.V
+/// LETI, FCTI, group 9301
+/// 
+/// source:
+/// https://github.com/Aleksandar7kr/ETU/tree/master/OOP/Kruskal
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,11 +17,10 @@ namespace Kruskal
     {
         static void Main(string[] args)
         {
-
             SquareMatrix2d wm = new SquareMatrix2d("g46.txt");
             SquareMatrix2d minSpanTree = Algorithms.MakeMinSpannedTree(wm);
             SquareMatrix2d K = Algorithms.MakeKirchhoffMatrix(wm);
-            double det = new SquareMatrix2d(K.Cofactor(1, 1)).Determinant();
+            double det = new SquareMatrix2d(K.Cofactor(0, 0)).Determinant();
 
             Console.WriteLine("Source matrix\n");
             Console.WriteLine(wm);
