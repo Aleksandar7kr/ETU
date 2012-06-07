@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="KruskalWin32.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Setting" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="sourceCodePage" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://github.com/Aleksandar7kr/ETU/tree/master/OOP/KruskalWin32</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
