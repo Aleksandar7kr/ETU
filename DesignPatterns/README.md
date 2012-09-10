@@ -1,0 +1,1 @@
+study the design patterns at Electrotechnical University "LETI"
