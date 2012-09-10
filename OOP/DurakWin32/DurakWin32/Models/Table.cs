@@ -9,8 +9,8 @@ namespace Durak
 {
     public class Table
     {
-        private readonly List<Card> _attackCard;
-        private readonly List<Card> _defenceCard;
+        private List<Card> _attackCard;
+        private List<Card> _defenceCard;
 
         private int _maxAttackCard;
         private Suits _suit;
@@ -45,39 +45,25 @@ namespace Durak
 
         public bool PutToDefence(Card c)
         {
-            if (c.Suit == _suit)
+            Card att = _attackCard[_attackCard.Count - 1];
+
+            if (att.Suit == c.Suit && c.Number > att.Number)
             {
-                if (_attackCard[_defenceCard.Count].Suit == _suit)
-                {
-                    if (c.Number < _attackCard[_defenceCard.Count].Number)
-                    {
-                        _defenceCard.Add(c);
-                        return true;
-                    }
-                    return false;
-                }
-                else
-                {
-                    _defenceCard.Add(c);
-                    return true;
-                }
+                _defenceCard.Add(c);
+                return true;
             }
             else
             {
-                if (c.Suit == _attackCard[_defenceCard.Count].Suit)
+                if (c.Suit == _suit)
                 {
-                    if (c.Number < _attackCard[_defenceCard.Count].Number)
-                    {
-                        _defenceCard.Add(c);
-                        return true;
-                    }
-                    return false;
+                    _defenceCard.Add(c);
+                    return true;
                 }
                 return false;
             }
         }
 
-        public HashSet<int> GetCanPutNumber()
+        public List<int> GetCanPutNumber()
         {
             HashSet<int> maybe = new HashSet<int>();
             for (int i = 0; i < _attackCard.Count; i++)
@@ -88,7 +74,7 @@ namespace Durak
             {
                 maybe.Add(_defenceCard[i].Number);
             }
-            return maybe;
+            return maybe.ToList<int>();
         }
 
         public bool isAllDefence()
@@ -103,6 +89,12 @@ namespace Durak
         public List<Card> DefenceCards
         {
             get { return _defenceCard; }
+        }
+
+        public void Clear()
+        {
+            _defenceCard.Clear();
+            _attackCard.Clear();
         }
     }
 }

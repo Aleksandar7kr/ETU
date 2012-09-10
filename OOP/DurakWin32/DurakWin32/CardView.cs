@@ -49,7 +49,7 @@ namespace DurakWin32
                 case 2: pictureBox.BackgroundImage = PngSuits.hearts_black; break;
                 case 3: pictureBox.BackgroundImage = PngSuits.diamonds_red; break;
             }
-         
+            OpenCard();
             this.Click += new EventHandler(CardView_Click);
         }
 
@@ -63,6 +63,7 @@ namespace DurakWin32
             {
                 OpenCard();
             }
+            
         }
 
         public bool Opened

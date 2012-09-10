@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Durak
 {
-    class Player
+    public class Player
     {
         private static int _nextId = 0;
 
@@ -24,19 +24,87 @@ namespace Durak
             get { return _id; }
         }
 
-        public void WatchingTable()
+        public int CardCount
         {
-            ;
+            get { return _hand.Count; }
         }
 
-        public void Attack()
+        public List<objects.Card> Hand
         {
-            ;
+            get { return _hand; }
         }
 
-        public void Defence()
+        public objects.Card Attack(List<int> possibleNumbers)
         {
-            ;
+            foreach (int number in possibleNumbers)
+            {
+                foreach (objects.Card c in _hand)
+                {
+                    if (c.Number == number)
+                    {
+                        _hand.Remove(c);
+                        return c;
+                    }
+                }
+            }
+            return null;
+        }
+
+        public objects.Card Defence(objects.Card card, objects.Suits suit)
+        {
+            if (card.Suit == suit)
+            {
+                foreach (objects.Card c in _hand)
+                {
+                    if (c.Suit == suit && c.Number > card.Number)
+                    {
+                        _hand.Remove(c);
+                        return c;
+                    }
+                }
+                return null;
+            }
+            else
+            {
+                foreach (objects.Card c in _hand)
+                {
+                    if ((c.Suit == card.Suit && c.Number > card.Number) || (c.Suit == suit))
+                    {
+                        _hand.Remove(c);
+                        return c;
+                    }
+                }
+                return null;
+            }
+        }
+
+        public objects.Card Attack(int i)
+        {
+            if (i > 0 && i < _hand.Count)
+            {
+                objects.Card c = _hand[i];
+                _hand.RemoveAt(i);
+                return c;
+            }
+            return null;
+        }
+
+        public objects.Card Defence(int i)
+        {
+            if (i > 0 && i < _hand.Count)
+            {
+                objects.Card c = _hand[i];
+                _hand.RemoveAt(i);
+                return c;
+            }
+            return null;
+        }
+
+        public objects.Card FirstAttack()
+        {
+            objects.Card c = _hand[0];
+            _hand.Remove(c);
+            return c;
         }
 
         public void CardToHand(objects.Card card)

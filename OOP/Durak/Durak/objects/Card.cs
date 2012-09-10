@@ -10,16 +10,20 @@ namespace Durak.objects
     /// </summary>
     class Card
     {
+        #region fields
         /// <summary>
         /// private field for card number
         /// </summary>
-        private int _number;
+        private readonly int _number;
 
         /// <summary>
         /// private field for card suit
         /// </summary>
-        private Suits _suit;
+        private readonly Suits _suit;
 
+        #endregion
+
+        #region constructors
         /// <summary>
         /// constructor
         /// </summary>
@@ -27,17 +31,18 @@ namespace Durak.objects
         /// <param name="suit">suit of card</param>
         public Card(int number, Suits suit)
         {
-            Number = number;
-            Suit = suit;
+            _number = number;
+            _suit = suit;
         }
+        #endregion
 
+        #region properties
         /// <summary>
         /// Property Number (get and set)
         /// </summary>
         public int Number
         {
             get { return _number; }
-            set { _number = value; }
         }
 
         /// <summary>
@@ -46,9 +51,11 @@ namespace Durak.objects
         public Suits Suit
         {
             get { return _suit; }
-            set { _suit = value; }
         }
+        #endregion
 
+
+        #region methods
         /// <summary>
         /// Overide object.ToString()
         /// </summary>
@@ -57,5 +64,6 @@ namespace Durak.objects
         {
             return Number.ToString() + " of " + Suit.ToString();
         }
+        #endregion
     }
 }

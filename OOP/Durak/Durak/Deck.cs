@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
@@ -9,42 +10,45 @@ namespace Durak
 {
     abstract class Deck  
     {
-        protected readonly int deckSize; // full deck size: 36 or 52 or ??
-        protected ArrayList cards;       // codes for card in the deck: range 1-deckSize
+        protected readonly int _fullDeckSize; // full deck size: 36 or 52 or ??
+        protected System.Collections.Generic.List<int> _cards;       // codes for card in the deck: range 1-deckSize
 
         public Deck(int fullSize)
         {
-            deckSize = fullSize;
-            cards = new ArrayList();
-            for (int i = 0; i < deckSize; ++i) cards.Add(i);
+            _fullDeckSize = fullSize;
+            _cards = new List<int>();
+            for (int i = 0; i < _fullDeckSize; ++i)
+            {
+                _cards.Add(i);
+            }
         }
 
         public Card GiveNextCard()
         {
             if (isEmpty()) return null;
 
-            int randomIndex = new Random().Next(cards.Count);
-            int cardCode = Convert.ToInt32(cards[randomIndex]);
-            cards.RemoveAt(randomIndex);
+            int randomIndex = new Random().Next(_cards.Count);
+            int cardCode = Convert.ToInt32(_cards[randomIndex]);
+            _cards.RemoveAt(randomIndex);
             return GenerateNextCard(cardCode);
         }
 
         public int GetDeckSize()
         {
-            return deckSize;
+            return _fullDeckSize;
         }
 
         public int GetCapacity()
         {
-            return cards.Count;
+            return _cards.Count;
         }
 
         public bool isEmpty()
         {
-            return cards.Count == 0;
+            return _cards.Count == 0;
         }
 
-        abstract public Card GenerateNextCard(int cardCode);
+        public abstract Card GenerateNextCard(int cardCode);
     }
 }
     

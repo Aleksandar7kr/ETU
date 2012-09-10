@@ -76,7 +76,7 @@ namespace KruskalWin32
                         e.Graphics.DrawString(minSpannedTreeModel[i, j].ToString(), Font, numberPen.Brush,
                             (xy[i].x + 8 + xy[j].x + 8) / 2,
                             (xy[i].y + 8 + xy[j].y + 8) / 2
-                            );
+                           );
                     }
                 }
             }
@@ -280,6 +280,11 @@ namespace KruskalWin32
             SquareMatrix2d K = Algorithms.MakeKirchhoffMatrix(srcMatrixModel);
             double det = new SquareMatrix2d(K.Cofactor(0, 0)).Determinant();
             statusBar.Text = "this graph contains the " + det.ToString() + " spanned trees";
+        }
+
+        private void sourceCodeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
         }
 
     }

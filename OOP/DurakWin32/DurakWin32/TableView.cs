@@ -29,11 +29,12 @@ namespace DurakWin32
 
         void TableView_Paint(object sender, PaintEventArgs e)
         {
-            if (_curAttackCards < _table.CountAttackCards)
+            if (_curAttackCards != _table.CountAttackCards)
             {
                 UpdateAttackPanel();
+                this.Refresh();
             }
-            if (_curDefenceCards < _table.CountDefenceCards)
+            if (_curDefenceCards != _table.CountDefenceCards)
             {
                 UpdateDefencePanel();
             }
@@ -41,17 +42,29 @@ namespace DurakWin32
 
         private void UpdateAttackPanel()
         {
-            this.attackCardPanel.Controls.Add(
-                new CardView((_table.AttackCards)[_curAttackCards++])
-            );
+            this.attackCardPanel.Controls.Clear();
+            foreach (Durak.objects.Card c in _table.AttackCards)
+            {
+                if (c != null)
+                {
+                    this.attackCardPanel.Controls.Add(new CardView(c));
+                }
+            }
+            _curAttackCards = _table.CountAttackCards;
             Refresh();
         }
 
         private void UpdateDefencePanel()
         {
-            this.defenceCardPanel.Controls.Add(
-                new CardView((_table.DefenceCards)[_curDefenceCards++])
-            );
+            this.defenceCardPanel.Controls.Clear();
+            foreach (Durak.objects.Card c in _table.DefenceCards)
+            {
+                if (c != null)
+                {
+                    this.defenceCardPanel.Controls.Add(new CardView(c));
+                }
+            }
+            _curDefenceCards = _table.CountDefenceCards;
             Refresh();
         }
     }

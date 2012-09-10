@@ -29,6 +29,7 @@ namespace Kruskal
 
         /// <summary>
         /// Make Incedented matrix for undirected weighted graph
+        /// http://en.wikipedia.org/wiki/Incidence_matrix
         /// </summary>
         /// <param name="m">square matrix of weighted graph</param>
         /// <returns>Incedented matrix</returns>
@@ -64,7 +65,6 @@ namespace Kruskal
 
         /// <summary>
         /// Make Kirchhoff matrix for undirected weighted graph
-        /// http://en.wikipedia.org/wiki/Incidence_matrix
         /// </summary>
         /// <param name="wm">square matrix of weighted graph</param>
         /// <returns>square Kirchhoff matrix</returns>

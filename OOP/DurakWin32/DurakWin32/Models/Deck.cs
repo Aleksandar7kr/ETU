@@ -8,7 +8,7 @@ using Durak.objects;
 
 namespace Durak
 {
-    abstract class Deck  
+    public abstract class Deck  
     {
         protected readonly int _fullDeckSize; // full deck size: 36 or 52 or ??
         protected System.Collections.Generic.List<int> _cards;       // codes for card in the deck: range 1-deckSize

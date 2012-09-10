@@ -16,6 +16,7 @@ namespace DurakWin32
         [STAThread]
         static void Main()
         {
+            //Game game = new Game();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());

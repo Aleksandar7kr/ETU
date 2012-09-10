@@ -7,12 +7,9 @@ using Durak.objects;
 
 namespace Durak
 {
-    /// <summary>
-    
-    /// </summary>
-    class MainClass
+    public static class Tests
     {
-        public static void Main(string[] args)
+        public static void DeckTest()
         {
             Deck deck = new Deck36();
             int i = 0;
@@ -21,8 +18,45 @@ namespace Durak
                 Card test = deck.GiveNextCard();
                 Console.WriteLine(test.ToString());
             }
-
             Console.WriteLine(i);
+        }
+
+
+        public static void QueueTest()
+        {
+            Deck d = new Deck36();
+            Queue<Card> q = new Queue<Card>();
+
+            while (!d.isEmpty())
+            {
+                q.Enqueue(d.GiveNextCard());
+            }
+
+            for (int i = 0; i < q.Count; i++)
+            {
+                q.Enqueue(q.Dequeue());
+                Console.WriteLine(q.Peek().ToString());
+            }
+        }
+
+        public static void HashSetTest()
+        {
+            HashSet<int> s = new HashSet<int>();
+            s.Add(1);
+            s.Add(2);
+            s.Add(1);
+            s.Add(3);
+            s.Add(1);
+            Console.WriteLine(s.Count);
+        }
+    }
+
+
+    class MainClass
+    {
+        public static void Main(string[] args)
+        {
+            
             Console.ReadKey();
         }
     }
