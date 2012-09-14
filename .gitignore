@@ -1,0 +1,6 @@
+*.exe
+*.obj
+*.class
+*.o
+*/bin/
+*/obj/
