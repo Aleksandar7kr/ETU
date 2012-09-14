@@ -2,5 +2,5 @@
 *.obj
 *.class
 *.o
-*/bin/
-*/obj/
+bin
+obj
