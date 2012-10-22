@@ -1,0 +1,1 @@
+SELECT title, title_no FROM title WHERE title_no = 10
