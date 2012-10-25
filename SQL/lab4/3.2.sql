@@ -1,0 +1,3 @@
+USE Library
+
+INSERT INTO sample1 DEFAULT VALUES

@@ -1,0 +1,4 @@
+USE Library
+
+SELECT 
+	@@IDENTITY
