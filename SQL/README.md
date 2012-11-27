@@ -1,19 +1,19 @@
 lab1			[done]
-** report			[done]
+** report		[done]
 lab2			[done]
-** report			[done]
+** report		[done]
 lab3			[done]
-** report			[done]
+** report		[done]
 lab4			[done]
-** report			[done]
+** report		[done]
 lab5			[done]
-** report			[done]
+** report		[done]
 lab6			[done]
-** report			[done]
+** report		[done]
 lab7			[done]
-** report			[done]
+** report		[done]
 lab8			[done]
-** report			[done]
+** report		[done]
 lab9
 ** report
 lab10
@@ -23,4 +23,4 @@ lab11
 
 fix title page of report
 
-sedn to check
+send to check
