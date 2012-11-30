@@ -1,0 +1,1 @@
+SELECT Sales.GetMaximumDiscountForCategory('Reseller') as MaxDiscount

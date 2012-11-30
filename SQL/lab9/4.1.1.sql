@@ -1,0 +1,1 @@
+SELECT Sales.GetCurrencyRate('GBP') as Rate
