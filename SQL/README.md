@@ -30,18 +30,18 @@ lab8                                  [done]
 
 ** report                            [done]
 
-lab9
+lab9			[done]
 
-** report
+** report			[done]
 
-lab10
+lab10			[done]
 
-** report
+** report			[done]
 
-lab11
+lab11			[done]
 
-** report
+** report			[done]
 
 fix title page of report          [done]
 
-send to check
+send to check		[done]
