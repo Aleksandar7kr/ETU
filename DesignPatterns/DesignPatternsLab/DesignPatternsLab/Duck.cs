@@ -39,7 +39,7 @@ namespace DesignPatternsLab
         public WoodDuck()
         {
             quackbehavior = new Slience();
-            flybehavior = new FlyWithWings();
+            flybehavior = new FlyNoWay();
             System.Console.WriteLine("I WoodDuck");
         }
     }
